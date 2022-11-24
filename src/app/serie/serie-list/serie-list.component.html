@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 margen">
+      <table class="table table-striped">
+        <caption class="promS">Seasons average: {{promedioSeasons}}</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Channel</th>
+            <th scope="col">Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="serieClick" (click)="onSelected(serie)" *ngFor="let serie of series">
+            <td>{{serie.id}}</td>
+            <td class="text-primary">{{serie.name}}</td>
+            <td>{{serie.channel}}</td>
+            <td>{{serie.seasons}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="selected" class="col">
+      <div>
+        <app-serie-detail [serie]="selectedSerie"></app-serie-detail>
+      </div>
+    </div>
+  </div>
+</div>
